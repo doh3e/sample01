@@ -1,0 +1,55 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ezen.koh10.store.Service">
+  <insert id="insert">
+  	insert into store0312(snum,place,carname,su,price,groups) 
+  	values(snum0312_seq.nextval,#{param1},#{param2},#{param3},#{param4},snum0312_seq.currval)
+  </insert>
+  
+  <select id="sort" resultType="com.ezen.koh10.store.StoreDTO">
+  	select snum,place,carname,su,price,su*price as totprice
+  	
+  	 from store0312
+  </select>
+  
+   <select id="sort1" resultType="com.ezen.koh10.store.StoreDTO">
+  	select place,sum(su*price) as totprice
+  	from store0312
+  	group by place
+  </select>
+  <select id="sort2" resultType="com.ezen.koh10.store.StoreDTO">
+  	select carname,sum(su*price) as totprice
+  	from store0312
+  	group by carname
+  </select>
+   <select id="sort3" resultType="com.ezen.koh10.store.StoreDTO">
+  	select snum,su*price as totprice
+  	from store0312
+  	where su*price=(select max(su*price) from store0312)
+  	 	
+  </select>
+  
+   <select id="sort4" resultType="com.ezen.koh10.store.StoreDTO">
+  	select snum,place,carname,su,price,sum(su*price) as totprice
+  	from store0312  	
+   	group by snum,place,carname,su,price
+   	order by sum(su*price) desc
+  </select>
+  <!-- 페이징처리에서  4단계 전체레코드수 구하기 -->
+	<select id="total" resultType="int">
+	   select count(*) from store0312
+	</select>	
+	
+	<!-- 페이징처리에서 전체레코드수 구하기  페이지 출력 구하기-->
+	<select id="page" resultType="com.ezen.koh10.store.StoreDTO">
+	   select * from ( 
+	   select rownum rn,A.* from(  
+	   select snum,place,carname,su,price,su*price as totprice 
+	   from store0312 )A) 
+	   	   where rn between #{start} AND #{end} 
+	</select>
+	 	
+	
+</mapper>

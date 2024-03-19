@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+   <definition name="baseLayout" template="/WEB-INF/views/layout.jsp">
+      <put-attribute name="title" value=""/>
+      <put-attribute name="top" value="/WEB-INF/views/top.jsp"/>
+      <put-attribute name="body" value=""/>
+      <put-attribute name="footer" value="/WEB-INF/views/footer.jsp"/>
+   </definition>
+   
+   <definition name="main" extends="baseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/main.jsp"/>
+   </definition>
+   
+   <definition name="bookinput" extends="baseLayout">
+      <put-attribute name="title" value="도서자료입력"/>
+      <put-attribute name="body" value="/WEB-INF/views/book/bookinput.jsp"/>
+   </definition>
+   <definition name="bookout" extends="baseLayout">
+      <put-attribute name="title" value="도서자료출력"/>
+      <put-attribute name="body" value="/WEB-INF/views/book/bookout.jsp"/>
+   </definition>
+   <definition name="detailview" extends="baseLayout">
+      <put-attribute name="title" value="도서자료상세보기"/>
+      <put-attribute name="body" value="/WEB-INF/views/book/detailview.jsp"/>
+   </definition>
+   <definition name="replyview" extends="baseLayout">
+      <put-attribute name="title" value="댓글입력창"/>
+      <put-attribute name="body" value="/WEB-INF/views/book/replyview.jsp"/>
+   </definition>
+   
+   <definition name="storeinput" extends="baseLayout">
+      <put-attribute name="title" value="상품자료입력"/>
+      <put-attribute name="body" value="/WEB-INF/views/store/storeinput.jsp"/>
+   </definition>
+   <definition name="storepage" extends="baseLayout">
+      <put-attribute name="title" value="상품자료출력"/>
+      <put-attribute name="body" value="/WEB-INF/views/store/storepage.jsp"/>
+   </definition>
+  <definition name="storepage1" extends="baseLayout">
+      <put-attribute name="title" value="상품자료출력"/>
+      <put-attribute name="body" value="/WEB-INF/views/store/storepage1.jsp"/>
+   </definition>
+   <definition name="storepage2" extends="baseLayout">
+      <put-attribute name="title" value="상품자료출력"/>
+      <put-attribute name="body" value="/WEB-INF/views/store/storepage2.jsp"/>
+   </definition>
+   <definition name="storepage3" extends="baseLayout">
+      <put-attribute name="title" value="상품자료출력"/>
+      <put-attribute name="body" value="/WEB-INF/views/store/storepage3.jsp"/>
+   </definition>
+     <definition name="storepage4" extends="baseLayout">
+      <put-attribute name="title" value="상품자료출력"/>
+      <put-attribute name="body" value="/WEB-INF/views/store/storepage4.jsp"/>
+   </definition>
+    <definition name="storepagepp" extends="baseLayout">
+      <put-attribute name="title" value="상품자료출력"/>
+      <put-attribute name="body" value="/WEB-INF/views/store/storepagepp.jsp"/>
+   </definition>
+</tiles-definitions>
